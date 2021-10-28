@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">JuegoBuscaminas(Grupo JAI)</string>
+    <string name="bienvenido">Bienvenido al juego del buscaminas</string>
+    <string-array name="nivel">
+        <item>Facil</item>
+        <item>Intermedio</item>
+        <item>Dificil</item>
+    </string-array>
+
 </resources>
