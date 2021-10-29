@@ -28,20 +28,30 @@ public class MainActivity extends AppCompatActivity {
         ArrayAdapter <CharSequence> adapterNivel = ArrayAdapter.createFromResource(this,R.array.nivel, android.R.layout.simple_spinner_item);
         adapterNivel.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinnerNivel.setAdapter(adapterNivel);
-        spinnerNivel.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spinnerNivel.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 nivel = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
         spinnerModo= (Spinner) findViewById(R.id.spinnerModo);
         ArrayAdapter <CharSequence> adapterModo = ArrayAdapter.createFromResource(this,R.array.modo, android.R.layout.simple_spinner_item);
         adapterModo.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinnerModo.setAdapter(adapterModo);
-        spinnerModo.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        spinnerModo.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 modo = adapterView.getItemAtPosition(i).toString();
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
             }
         });
 
