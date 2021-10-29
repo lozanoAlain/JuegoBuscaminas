@@ -6,5 +6,11 @@
         <item>Intermedio</item>
         <item>Dificil</item>
     </string-array>
+    <string name="select_Nivel">Selecciona el nivel deseado</string>
+    <string-array name="modo">
+        <item>Clasico</item>
+        <item>Supervivencia</item>
+    </string-array>
+    <string name="empezar">Empezar!</string>
 
 </resources>
