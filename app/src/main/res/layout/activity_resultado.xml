@@ -7,17 +7,31 @@
     android:background="#EBFFD3"
     tools:context=".Activity_resultado">
 
+    <TextView
+        android:id="@+id/fondo"
+        android:layout_width="334dp"
+        android:layout_height="643dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="71dp"
+        android:layout_marginEnd="39dp"
+        android:layout_marginBottom="71dp"
+        android:background="#CFDFBD"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <EditText
         android:id="@+id/editResultado"
         android:layout_width="234dp"
         android:layout_height="49dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="160dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="200dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
         android:ems="10"
         android:fontFamily="@font/amiko"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:text="Name"
         android:textAlignment="textStart"
         android:textSize="20sp"
@@ -28,8 +42,8 @@
         android:id="@+id/editNombre"
         android:layout_width="234dp"
         android:layout_height="49dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="268dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="300dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
         android:ems="10"
@@ -45,19 +59,56 @@
         android:id="@+id/btnReinicio"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="81dp"
+        android:layout_marginStart="85dp"
         android:layout_marginTop="84dp"
-        android:text="Button"
+        android:backgroundTint="#FF7B7B"
+        app:icon="@android:drawable/ic_menu_revert"
+        app:iconSize="50dp"
+        app:iconTint="#EBFFD3"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNombre" />
+        app:layout_constraintTop_toBottomOf="@+id/editNombre"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnGuardar"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="298dp"
+        android:layout_marginTop="240dp"
+        android:backgroundTint="#CFDFBD"
+        app:icon="@android:drawable/ic_menu_save"
+        app:iconSize="50dp"
+        app:iconTint="#555454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fondo"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <Button
         android:id="@+id/btnCompartir"
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:layout_marginStart="232dp"
         android:layout_marginTop="84dp"
-        android:text="Button"
+        android:layout_marginEnd="85dp"
+        android:backgroundTint="#FF7B7B"
+        app:icon="@android:drawable/ic_menu_share"
+        app:iconSize="50dp"
+        app:iconTint="#EBFFD3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editNombre"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <TextView
+        android:id="@+id/txtFinished"
+        android:layout_width="250dp"
+        android:layout_height="75dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="60dp"
+        android:fontFamily="@font/amiko"
+        android:text="@string/txtFinished"
+        android:textAlignment="center"
+        android:textColor="@color/black"
+        android:textSize="38sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editNombre" />
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
