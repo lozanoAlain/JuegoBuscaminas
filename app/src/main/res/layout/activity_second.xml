@@ -9,7 +9,7 @@
     tools:context=".Second_Activity">
 
     <Button
-        android:id="@+id/btBack"
+        android:id="@+id/btnBack"
         android:layout_width="114dp"
         android:layout_height="49dp"
         android:layout_marginStart="149dp"

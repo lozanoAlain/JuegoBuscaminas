@@ -8,7 +8,6 @@
     <string name="errorNombre">Es obligatorio el nombre para guardar la puntuación</string>
     <string name="guardado">Puntuación guardada</string>
     <string name="compartido">Puntuación compartida</string>
-
     <string name="bienvenido">Bienvenido al juego del buscaminas</string>
     <string-array name="nivel">
         <item>Facil</item>

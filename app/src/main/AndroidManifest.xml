@@ -10,9 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.JuegoBuscaminasGrupoJAI">
         <activity
-
             android:name=".Activity_resultado"
-            android:name=".Second_Activity"
+            android:exported="true" />
+        <activity android:name=".Second_Activity"
             android:exported="true" />
         <activity
             android:name=".MainActivity"

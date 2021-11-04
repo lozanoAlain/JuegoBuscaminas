@@ -12,6 +12,7 @@ import android.widget.Spinner;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final int ACTIVITY_PREGUNTAS2 = 1;
 
     private Spinner spinnerNivel;
     private Spinner spinnerModo;
@@ -57,14 +58,15 @@ public class MainActivity extends AppCompatActivity {
 
         buttonStart=(Button) findViewById(R.id.buttonStart);
         buttonStart.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                /*
-                Intent intent = new Intent(MainActivity.this, Preguntas2.class);
-                intent.putExtra("PARAM_1", puntos);
-                intent.putExtra("PARAM_2", nombre);
+
+                Intent intent = new Intent(MainActivity.this, Second_Activity.class);
+                intent.putExtra("PARAM_1", nivel);
+                intent.putExtra("PARAM_2", modo);
                 startActivityForResult(intent, ACTIVITY_PREGUNTAS2);
-                */
+
 
             }
         });

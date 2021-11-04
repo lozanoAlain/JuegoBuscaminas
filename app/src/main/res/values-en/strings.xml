@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JuegoBuscaminas(Grupo JAI)</string>
-    <string name="txtFinished">end of game</string>
+    <string name="txtFinished">End of game</string>
     <string name="editNombre">Enter your name</string>
     <string name="guardar">Click to save your score</string>
     <string name="compartir">Click to share your score</string>
