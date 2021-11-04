@@ -3,8 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/2dam.HZ375754/AndroidStudioProjects/JuegoBuscaminas/app/src/main/res/layout/activity_main.xml" value="0.22871376811594202" />
+
+       
         <entry key="..\:/Users/2dam.HZ375754/AndroidStudioProjects/JuegoBuscaminas/app/src/main/res/layout/activity_resultado.xml" value="0.22871376811594202" />
+
+
+        <entry key="..\:/Users/2dam.HZ375749/AndroidStudioProjects/JuegoBuscaminas/app/src/main/res/layout/activity_second.xml" value="0.264" />
+
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/JuegoBuscaminasGrupoJAI/app/src/main/res/layout/activity_main.xml" value="0.2526041666666667" />
+        <entry key="..\:/Users/Usuario/AndroidStudioProjects/JuegoBuscaminasGrupoJAI/app/src/main/res/layout/spinner_text.xml" value="0.20516304347826086" />
+
+
       </map>
     </option>
   </component>

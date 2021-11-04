@@ -8,4 +8,8 @@
     <string name="errorNombre">The name is required to save the score</string>
     <string name="guardado">Saved score</string>
     <string name="compartido">Shared score</string>
+    <string name="bienvenido">Welcome to the minesweeper game</string>
+    <string name="select_Nivel">Select the desired level</string>
+    <string name="empezar">Start!</string>
+
 </resources>
