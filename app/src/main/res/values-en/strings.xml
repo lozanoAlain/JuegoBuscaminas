@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JuegoBuscaminas(Grupo JAI)</string>
+    <string name="txtFinished">end of game</string>
+    <string name="editNombre">Enter your name</string>
+    <string name="guardar">Click to save your score</string>
+    <string name="compartir">Click to share your score</string>
+    <string name="errorNombre">The name is required to save the score</string>
+    <string name="guardado">Saved score</string>
+    <string name="compartido">Shared score</string>
     <string name="bienvenido">Welcome to the minesweeper game</string>
     <string name="select_Nivel">Select the desired level</string>
     <string name="empezar">Start!</string>
+
 </resources>

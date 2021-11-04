@@ -1,6 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">JuegoBuscaminas(Grupo JAI)</string>
-
     <string name="txtFinished">Fin del Juego</string>
     <string name="editNombre">Introduce tu nombre</string>
     <string name="guardar">Pulsa para guardar tu puntuación</string>
@@ -8,18 +8,4 @@
     <string name="errorNombre">Es obligatorio el nombre para guardar la puntuación</string>
     <string name="guardado">Puntuación guardada</string>
     <string name="compartido">Puntuación compartida</string>
-
-    <string name="bienvenido">Bienvenido al juego del buscaminas</string>
-    <string-array name="nivel">
-        <item>Facil</item>
-        <item>Intermedio</item>
-        <item>Dificil</item>
-    </string-array>
-    <string name="select_Nivel">Selecciona el nivel deseado</string>
-    <string-array name="modo">
-        <item>Clasico</item>
-        <item>Supervivencia</item>
-    </string-array>
-    <string name="empezar">Empezar!</string>
-
 </resources>
