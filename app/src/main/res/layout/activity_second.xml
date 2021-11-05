@@ -49,7 +49,8 @@
                 android:ems="10"
                 android:fontFamily="@font/amiko"
                 android:inputType="numberDecimal"
-                android:textColor="#000000" />
+                android:textColor="#000000"
+                tools:ignore="SpeakableTextPresentCheck" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -79,8 +80,23 @@
                 android:gravity="center"
                 android:inputType="numberDecimal"
                 android:textColor="#000000"
-                android:textSize="20sp" />
+                android:textSize="20sp"
+                tools:ignore="SpeakableTextPresentCheck" />
         </TableRow>
 
     </TableLayout>
+
+    <androidx.gridlayout.widget.GridLayout
+        android:id="@+id/gridBuscaminas"
+        android:layout_width="409dp"
+        android:layout_height="357dp"
+        app:layout_constraintBottom_toTopOf="@+id/btnBack"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout">
+
+
+    </androidx.gridlayout.widget.GridLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
