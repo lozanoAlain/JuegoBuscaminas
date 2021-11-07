@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 
-import android.widget.ImageButton;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -23,11 +21,12 @@ public class Second_Activity extends AppCompatActivity {
 
     private EditText tfTime =null;
     private EditText tfScore=null;
-    private int time=0;
+    private int seconds =0;
     private int score=0;
     private Button buttonBack;
     private GridLayout gridBuscaminas;
-    private ImageButton button;
+    private Timer timer;
+
 
 
     private int[][] Tablero;
@@ -54,12 +53,12 @@ public class Second_Activity extends AppCompatActivity {
 
         tfTime = (EditText) findViewById( R.id.timeField);
         tfScore = (EditText) findViewById(R.id.scoreField);
-        Timer T=new Timer();
-        T.scheduleAtFixedRate(new TimerTask() {
+        timer=new Timer();
+        timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                tfTime.setText(String.valueOf(time));
-                time++;
+                tfTime.setText(String.valueOf(seconds));
+                seconds++;
             }
         }, 1000, 1000);
 
@@ -82,7 +81,7 @@ public class Second_Activity extends AppCompatActivity {
 
 
     }
-    private void iniciarGridLayout(int i ) {
+    private void iniciarGridLayout(int i) {
         gridBuscaminas.setColumnCount(i);
         gridBuscaminas.setRowCount(i);
         Tablero =logica.meterBombasyNumeros(i);
@@ -90,26 +89,25 @@ public class Second_Activity extends AppCompatActivity {
 
         for (int y = 0; y < i; y++) {
             for (int x = 0; x < i; x++) {
-                gridBuscaminas.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                       // gridBuscaminas.getChildAt();
-                    }
-                });
-                    button= new ImageButton(this);
+
+                    ImageButtonPosition button= new ImageButtonPosition(this);
                     button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT));
                     button.setId(View.generateViewId());
                     button.setImageDrawable(getDrawable(R.drawable.sin_descubrir));
+                    button.setColumna(y);
+                    button.setFila(x);
                     gridBuscaminas.addView(button);
-                    int finalY = y;
-                    int finalX = x;
                     button.setOnClickListener(new View.OnClickListener() {
                     @Override
                         public void onClick(View view) {
-                                if(Tablero[finalX][finalY]>=9){
+                        button.setEnabled(false);
+                        if(Tablero[button.getFila()][button.getColumna()]>=9){
                                     button.setImageDrawable(getDrawable(R.drawable.mina));
+                                    vaciarTablero(i);
+                                    timer.cancel();
+
                                 }else{
-                                    switch (Tablero[finalX][finalY]){
+                                    switch (Tablero[button.getFila()][button.getColumna()]){
                                         case 1:
                                             button.setImageDrawable(getDrawable(R.drawable.uno));
                                             break;
@@ -138,9 +136,12 @@ public class Second_Activity extends AppCompatActivity {
                                             button.setImageDrawable(getDrawable(R.drawable.nothing));
 
 
+
                                     }
                                 }
+
                             }
+
 
 
                         });
@@ -149,6 +150,22 @@ public class Second_Activity extends AppCompatActivity {
         }
 
 
+    }
+
+    private void vaciarTablero(int i) {
+        for (int y = 0; y < i; y++) {
+            for (int x = 0; x < i; x++) {
+                if(Tablero[x][y]>=9){
+                    for(int index=0;index<gridBuscaminas.getChildCount();index++){
+                        ImageButtonPosition imageButtonPosition= (ImageButtonPosition) gridBuscaminas.getChildAt(index);
+                        if(imageButtonPosition.getColumna()==y && imageButtonPosition.getFila()==x){
+                            imageButtonPosition.setImageDrawable(getDrawable(R.drawable.mina));
+                        }
+                    }
+
+                }
+            }
+        }
     }
 }
 
