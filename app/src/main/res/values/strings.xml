@@ -2,14 +2,16 @@
     <string name="app_name">JuegoBuscaminas(Grupo JAI)</string>
 
     <string name="txtFinished">Fin del Juego</string>
+    <string name="txtName">Nombre</string>
     <string name="editNombre">Introduce tu nombre</string>
     <string name="guardar">Pulsa para guardar tu puntuación</string>
     <string name="compartir">Pulsa para compartir tu puntuación</string>
     <string name="errorNombre">Es obligatorio el nombre para guardar la puntuación</string>
     <string name="guardado">Puntuación guardada</string>
     <string name="compartido">Puntuación compartida</string>
-
     <string name="bienvenido">Bienvenido al juego del buscaminas</string>
+    <string name="atras">Volver</string>
+    <string name="maximaPuntuacion">Mejor tiempo</string>
     <string-array name="nivel">
         <item>Facil</item>
         <item>Intermedio</item>
@@ -21,5 +23,15 @@
         <item>Supervivencia</item>
     </string-array>
     <string name="empezar">Empezar!</string>
+    <string name="errorBandera">Para quitar la bandera pulse y mantenga</string>
+    <string name="perder">Lo sentimos, has perdido</string>
+    <string name="ganar">Has ganado con tiempo:</string>
+    <string name="asunto">Puntuacion Buscaminas</string>
+    <string name="contenido">He ganado en el juego buscaminas con la puntuación: </string>
+    <string name="escoger">Escoge una app para mandar el correo</string>
+    <string name="mail_MIME" translatable="false">message/rfc822</string>
+    <string name="error_correo">Error al abrir el correo</string>
+
+
 
 </resources>

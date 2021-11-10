@@ -8,4 +8,17 @@
     <string name="errorNombre">Es obligatorio el nombre para guardar la puntuación</string>
     <string name="guardado">Puntuación guardada</string>
     <string name="compartido">Puntuación compartida</string>
+    <string name="bienvenido">Bienvenido al juego del buscaminas</string>
+    <string name="select_Nivel">Selecciona el nivel deseado</string>
+    <string name="empezar">Empezar!</string>
+    <string name="errorBandera">Para quitar la bandera pulse y mantenga</string>
+    <string name="perder">Lo sentimos, has perdido</string>
+    <string name="ganar">Has ganado con tiempo:</string>
+    <string name="asunto">Puntuacion Buscaminas</string>
+    <string name="contenido">"He ganado en el juego buscaminas con la puntuación: "</string>
+    <string name="escoger">Escoge una app para mandar el correo</string>
+    <string name="error_correo">Error al abrir el correo</string>
+    <string name="maximaPuntuacion">Mejor tiempo</string>
+    <string name="txtName">Nombre</string>
+    <string name="atras">Volver</string>
 </resources>
