@@ -11,6 +11,24 @@ public class ImageButtonPosition extends androidx.appcompat.widget.AppCompatImag
 
     private int fila;
     private int columna;
+    private boolean bandera;
+    private boolean descubierta;
+
+    public boolean isDescubierta() {
+        return descubierta;
+    }
+
+    public void setDescubierta(boolean descubierta) {
+        this.descubierta = descubierta;
+    }
+
+    public boolean isBandera() {
+        return bandera;
+    }
+
+    public void setBandera(boolean bandera) {
+        this.bandera = bandera;
+    }
 
     public int getFila() {
         return fila;

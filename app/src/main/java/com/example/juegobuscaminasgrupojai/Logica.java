@@ -17,7 +17,7 @@ public class Logica {
 
         int minasColocadas = 0;
 
-        while (minasColocadas < i) {
+        while (minasColocadas < 1) {
             int fila = (int) (Math.random() * (i - 1 - 0 + 1) + 0);
             int columna = (int) (Math.random() * (i - 1 - 0 + 1) + 0);
             if (Minas[fila][columna] == 9) {

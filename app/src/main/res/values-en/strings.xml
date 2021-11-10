@@ -11,5 +11,15 @@
     <string name="bienvenido">Welcome to the minesweeper game</string>
     <string name="select_Nivel">Select the desired level</string>
     <string name="empezar">Start!</string>
+    <string name="errorBandera">To remove the flag press and hold</string>
+    <string name="perder">Sorry, you have lost</string>
+    <string name="ganar">You have won with time:</string>
+    <string name="asunto">Minesweeper score</string>
+    <string name="contenido">"I won in the minesweeper with the score of: "</string>
+    <string name="escoger">Choose an app to send the email</string>
+    <string name="error_correo">Error opening the email</string>
+    <string name="maximaPuntuacion">Best time</string>
+    <string name="txtName">Name</string>
+    <string name="atras">Back</string>
 
 </resources>
