@@ -21,4 +21,5 @@
     <string name="maximaPuntuacion">Mejor tiempo</string>
     <string name="txtName">Nombre</string>
     <string name="atras">Volver</string>
+    <string name="noImplementado">This game mode will be implemented in the next version of the game.</string>
 </resources>

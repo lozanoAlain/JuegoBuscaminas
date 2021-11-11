@@ -105,8 +105,8 @@ public class Second_Activity extends AppCompatActivity {
                 button.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
                 button.setId(View.generateViewId());
                 button.setImageDrawable(getDrawable(R.drawable.sin_descubrir));
-                button.setColumna(y);
-                button.setFila(x);
+                button.setColumna(x);
+                button.setFila(y);
                 gridBuscaminas.addView(button);
                 button.setOnLongClickListener(new View.OnLongClickListener() {
                     @Override
@@ -188,8 +188,8 @@ public class Second_Activity extends AppCompatActivity {
                                         break;
                                     case 0:
                                         button.setImageDrawable(getDrawable(R.drawable.nothing));
-                                        //recorrer(button.getColumna(), button.getFila(), i, button);
-                                        button.setDescubierta(true);
+                                        //recorrer( button.getFila(),button.getColumna(), i, button);
+                                        button.setEnabled(false);
                                         numDescubiertas++;
                                         break;
                                 }
@@ -235,71 +235,77 @@ public class Second_Activity extends AppCompatActivity {
 
     private void recorrer(int x, int y, int i, ImageButtonPosition button) {
         if (x >= 0 && x < i && y >= 0 && y < i) {
-            ImageButtonPosition buttonPosition=(ImageButtonPosition) gridBuscaminas.getChildAt(x * i + y + 1);;
-            if (Tablero[x][y] == 0) {
-                buttonPosition.setImageDrawable(getDrawable(R.drawable.nothing));
-                if (y == 0) {
-                     if (x == 0) {
-                         recorrer(x + 1, y, i, buttonPosition);
-                         recorrer(x, y + 1, i, buttonPosition);
-                         recorrer(x + 1, y + 1, i, buttonPosition);
-                     } else if (x == i - 1) {
-                         recorrer(x - 1, y, i, buttonPosition);
-                         recorrer(x - 1, y + 1, i, buttonPosition);
-                         recorrer(x, y + 1, i, buttonPosition);
+            ImageButtonPosition buttonPosition=(ImageButtonPosition) gridBuscaminas.getChildAt(x * i + y + 1);
+            if (!buttonPosition.isDescubierta()){
+                if (Tablero[x][y] == 0) {
+                    buttonPosition.setImageDrawable(getDrawable(R.drawable.nothing));
+                    buttonPosition.setDescubierta(true);
+                    buttonPosition.setEnabled(false);
+                    if (y == 0) {
+                        if (x == 0) {
+                            recorrer(x + 1, y, i, buttonPosition);
+                            recorrer(x, y + 1, i, buttonPosition);
+                            recorrer(x + 1, y + 1, i, buttonPosition);
+                        } else if (x == i - 1) {
+                            recorrer(x - 1, y, i, buttonPosition);
+                            recorrer(x - 1, y + 1, i, buttonPosition);
+                            recorrer(x, y + 1, i, buttonPosition);
 
-                     } else {
-                         recorrer(x - 1, y, i, buttonPosition);
-                         recorrer(x + 1, y, i, buttonPosition);
-                         recorrer(x - 1, y + 1, i, buttonPosition);
-                         recorrer(x, y + 1, i, buttonPosition);
-                         recorrer(x + 1, y + 1, i, buttonPosition);
+                        } else {
+                            recorrer(x - 1, y, i, buttonPosition);
+                            recorrer(x + 1, y, i, buttonPosition);
+                            recorrer(x - 1, y + 1, i, buttonPosition);
+                            recorrer(x, y + 1, i, buttonPosition);
+                            recorrer(x + 1, y + 1, i, buttonPosition);
 
-                     }
-                }else if (y == i - 1) {
-                     if (x == i - 1) {
-                         recorrer(x - 1, y - 1, i, buttonPosition);
-                         recorrer(x, y - 1, i, buttonPosition);
-                         recorrer(x - 1, y, i, buttonPosition);
+                        }
+                    }else if (y == i - 1) {
+                        if (x == i - 1) {
+                            recorrer(x - 1, y - 1, i, buttonPosition);
+                            recorrer(x, y - 1, i, buttonPosition);
+                            recorrer(x - 1, y, i, buttonPosition);
 
-                     } else if (x == 0) {
-                         recorrer(x, y - 1, i, buttonPosition);
-                         recorrer(x + 1, y - 1, i, buttonPosition);
-                         recorrer(x + 1, y, i, buttonPosition);
+                        } else if (x == 0) {
+                            recorrer(x, y - 1, i, buttonPosition);
+                            recorrer(x + 1, y - 1, i, buttonPosition);
+                            recorrer(x + 1, y, i, buttonPosition);
 
-                     } else {
-                         recorrer(x - 1, y - 1, i, buttonPosition);
-                         recorrer(x, y - 1, i, buttonPosition);
-                         recorrer(x + 1, y - 1, i, buttonPosition);
-                         recorrer(x - 1, y, i, buttonPosition);
-                         recorrer(x + 1, y, i, buttonPosition);
-                     }
-                } else if (x == 0) {
-                     recorrer(x, y - 1, i, buttonPosition);
-                     recorrer(x + 1, y - 1, i, buttonPosition);
-                     recorrer(x + 1, y , i, buttonPosition);
-                     recorrer(x + 1, y + 1, i, buttonPosition);
-                     recorrer(x, y +1, i, buttonPosition);
-                } else if (x == i - 1) {
-                     recorrer(x - 1, y - 1, i, buttonPosition);
-                     recorrer(x, y - 1, i, buttonPosition);
-                     recorrer(x - 1, y , i, buttonPosition);
-                     recorrer(x - 1, y + 1, i, buttonPosition);
-                     recorrer(x , y + 1, i, buttonPosition);
-                } else {
-                     recorrer(x - 1, y - 1, i, buttonPosition);
-                     recorrer(x, y - 1, i, buttonPosition);
-                     recorrer(x + 1, y - 1, i, buttonPosition);
-                     recorrer(x - 1, y, i, buttonPosition);
-                     recorrer(x + 1, y, i, buttonPosition);
-                     recorrer(x - 1, y + 1, i, buttonPosition);
-                     recorrer(x , y + 1, i, buttonPosition);
-                     recorrer(x + 1, y +1, i, buttonPosition);
+                        } else {
+                            recorrer(x - 1, y - 1, i, buttonPosition);
+                            recorrer(x, y - 1, i, buttonPosition);
+                            recorrer(x + 1, y - 1, i, buttonPosition);
+                            recorrer(x - 1, y, i, buttonPosition);
+                            recorrer(x + 1, y, i, buttonPosition);
+                        }
+                    } else if (x == 0) {
+                        recorrer(x, y - 1, i, buttonPosition);
+                        recorrer(x + 1, y - 1, i, buttonPosition);
+                        recorrer(x + 1, y , i, buttonPosition);
+                        recorrer(x + 1, y + 1, i, buttonPosition);
+                        recorrer(x, y +1, i, buttonPosition);
+                    } else if (x == i - 1) {
+                        recorrer(x - 1, y - 1, i, buttonPosition);
+                        recorrer(x, y - 1, i, buttonPosition);
+                        recorrer(x - 1, y , i, buttonPosition);
+                        recorrer(x - 1, y + 1, i, buttonPosition);
+                        recorrer(x , y + 1, i, buttonPosition);
+                    } else {
+                        recorrer(x - 1, y - 1, i, buttonPosition);
+                        recorrer(x, y - 1, i, buttonPosition);
+                        recorrer(x + 1, y - 1, i, buttonPosition);
+                        recorrer(x - 1, y, i, buttonPosition);
+                        recorrer(x + 1, y, i, buttonPosition);
+                        recorrer(x - 1, y + 1, i, buttonPosition);
+                        recorrer(x , y + 1, i, buttonPosition);
+                        recorrer(x + 1, y +1, i, buttonPosition);
+                    }
+
+                } else if (Tablero[x][y] >= 1 && Tablero[x][y] < 9 ) {
+                    buttonPosition.setImageDrawable(getDrawable(R.drawable.uno));
+                    buttonPosition.setDescubierta(true);
+                    buttonPosition.setEnabled(false);
+
                 }
-
-            } else if (Tablero[x][y] >= 1 && Tablero[x][y] < 9) {
-                buttonPosition.setImageDrawable(getDrawable(R.drawable.uno));
-
             }
         }
     }
