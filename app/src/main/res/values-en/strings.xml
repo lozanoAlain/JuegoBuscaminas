@@ -21,5 +21,6 @@
     <string name="maximaPuntuacion">Best time</string>
     <string name="txtName">Name</string>
     <string name="atras">Back</string>
+    <string name="noImplementado">This game mode will be implemented in the next version of the game.</string>
 
 </resources>

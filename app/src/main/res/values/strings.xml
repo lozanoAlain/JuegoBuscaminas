@@ -22,6 +22,7 @@
         <item>Clasico</item>
         <item>Supervivencia</item>
     </string-array>
+    <string name="noImplementado">Este modo de juego se implementará en la siguiente versión del juego</string>
     <string name="empezar">Empezar!</string>
     <string name="errorBandera">Para quitar la bandera pulse y mantenga</string>
     <string name="perder">Lo sentimos, has perdido</string>

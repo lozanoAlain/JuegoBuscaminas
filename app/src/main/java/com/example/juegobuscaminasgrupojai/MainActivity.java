@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -61,11 +62,16 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                if(modo.equals("Supervivencia")){
+                    Toast toast = Toast.makeText(getApplicationContext(),getText(R.string.noImplementado), Toast.LENGTH_SHORT);
+                    toast.show();
+                }else{
+                    Intent intent = new Intent(MainActivity.this, Second_Activity.class);
+                    intent.putExtra("PARAM_1", nivel);
+                    intent.putExtra("PARAM_2", modo);
+                    startActivityForResult(intent, ACTIVITY_PREGUNTAS2);
+                }
 
-                Intent intent = new Intent(MainActivity.this, Second_Activity.class);
-                intent.putExtra("PARAM_1", nivel);
-                intent.putExtra("PARAM_2", modo);
-                startActivityForResult(intent, ACTIVITY_PREGUNTAS2);
 
 
             }
