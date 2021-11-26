@@ -22,4 +22,7 @@
     <string name="txtName">Nombre</string>
     <string name="atras">Volver</string>
     <string name="noImplementado">This game mode will be implemented in the next version of the game.</string>
+    <string name="error">Ha ocurrido un error</string>
+    <string name="error_camara">No tenemos cámara en el dispositivo</string>
+    <string name="error_foto">Tiene que sacarse una foto para guardar la puntuacion</string>
 </resources>

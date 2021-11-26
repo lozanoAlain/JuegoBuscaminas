@@ -18,6 +18,7 @@
         android:background="#CFDFBD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -39,7 +40,7 @@
         android:id="@+id/spinnerModo"
         android:layout_width="234dp"
         android:layout_height="49dp"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="184dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,7 +51,7 @@
         android:id="@+id/spinnerNivel"
         android:layout_width="234dp"
         android:layout_height="49dp"
-        android:layout_marginStart="88dp"
+        android:layout_marginStart="70dp"
         android:layout_marginTop="80dp"
         android:background="#FFFFFF"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,8 +62,8 @@
         android:id="@+id/buttonStart"
         android:layout_width="119dp"
         android:layout_height="48dp"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="123dp"
+        android:layout_marginStart="125dp"
+        android:layout_marginTop="180dp"
         android:width="114dp"
         android:backgroundTint="#FF7B7B"
         android:fontFamily="@font/amiko"
@@ -71,5 +72,29 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinnerModo"
         tools:ignore="TextContrastCheck" />
+
+    <Button
+        android:id="@+id/buttonTutorial"
+        android:layout_width="52dp"
+        android:layout_height="58dp"
+        android:layout_marginStart="157dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#FF7B7B"
+        app:icon="@drawable/pregunta"
+        app:iconSize="20dp"
+        app:layout_constraintBottom_toTopOf="@+id/buttonStart"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <VideoView
+        android:id="@+id/videoViewTut"
+        android:layout_width="323dp"
+        android:layout_height="259dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="40dp"
+        android:layout_marginBottom="250dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

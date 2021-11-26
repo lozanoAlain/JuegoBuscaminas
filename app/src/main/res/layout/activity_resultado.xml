@@ -38,7 +38,8 @@
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editNombre"
@@ -81,6 +82,20 @@
         app:icon="@android:drawable/ic_menu_save"
         app:iconSize="50dp"
         app:iconTint="#555454"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fondo"
+        tools:ignore="SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/btnFoto"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginStart="155dp"
+        android:layout_marginTop="560dp"
+        android:backgroundTint="#FF7B7B"
+        app:icon="@android:drawable/ic_menu_camera"
+        app:iconSize="50dp"
+        app:iconTint="#CFDFBD"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fondo"
         tools:ignore="SpeakableTextPresentCheck" />

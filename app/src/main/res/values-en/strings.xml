@@ -22,5 +22,8 @@
     <string name="txtName">Name</string>
     <string name="atras">Back</string>
     <string name="noImplementado">This game mode will be implemented in the next version of the game.</string>
+    <string name="error">An error has occurred</string>
+    <string name="error_camara">We do not have a camera in the device</string>
+    <string name="error_foto">You have to take a picture to save the score.</string>
 
 </resources>

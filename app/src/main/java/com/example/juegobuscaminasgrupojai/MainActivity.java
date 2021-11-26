@@ -3,13 +3,20 @@ package com.example.juegobuscaminasgrupojai;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.MediaController;
 import android.widget.Spinner;
 import android.widget.Toast;
+import android.widget.VideoView;
+
+import java.io.IOException;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -18,6 +25,10 @@ public class MainActivity extends AppCompatActivity {
     private Spinner spinnerNivel;
     private Spinner spinnerModo;
     private Button buttonStart;
+    private Button buttonTutorial;
+    private VideoView videoView;
+    private MediaController mediaPlayer;
+
     String nivel ;
     String modo;
     @Override
@@ -26,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        videoView=(VideoView) findViewById(R.id.videoViewTut);
+        videoView.setVisibility(View.INVISIBLE);
         spinnerNivel= (Spinner) findViewById(R.id.spinnerNivel);
         ArrayAdapter <CharSequence> adapterNivel = ArrayAdapter.createFromResource(this,R.array.nivel, android.R.layout.simple_spinner_item);
         adapterNivel.setDropDownViewResource(android.R.layout.simple_spinner_item);
@@ -72,8 +85,39 @@ public class MainActivity extends AppCompatActivity {
                     startActivityForResult(intent, ACTIVITY_PREGUNTAS2);
                 }
 
-
-
+            }
+        });
+        buttonTutorial=(Button) findViewById(R.id.buttonTutorial);
+        mediaPlayer=new MediaController(this);
+        buttonTutorial.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                    spinnerModo.setVisibility(View.INVISIBLE);
+                    spinnerNivel.setVisibility(View.INVISIBLE);
+                    videoView.setVisibility(View.VISIBLE);
+                    videoView.setMediaController(mediaPlayer);
+                    mediaPlayer.setAnchorView(videoView);
+                    buttonStart.setEnabled(false);
+                    videoView.setVideoURI(Uri.parse("android.resource://" + getPackageName() + "/" + R.raw.tutorial));
+                    videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+                    @Override
+                    public void onPrepared(MediaPlayer mp) {
+                        Toast.makeText(getBaseContext(),"El video esta preparado",Toast.LENGTH_LONG).show();
+                        mediaPlayer.show(20000);
+                        videoView.start();
+                    }
+                });
+                videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+                    @Override
+                    public void onCompletion(MediaPlayer mp) {
+                        Toast.makeText(getBaseContext(),"El video ha terminado",Toast.LENGTH_LONG).show();
+                        mediaPlayer.show(20000);
+                        videoView.setVisibility(View.INVISIBLE);
+                        spinnerModo.setVisibility(View.VISIBLE);
+                        spinnerNivel.setVisibility(View.VISIBLE);
+                        buttonStart.setEnabled(true);
+                    }
+                });
             }
         });
     }

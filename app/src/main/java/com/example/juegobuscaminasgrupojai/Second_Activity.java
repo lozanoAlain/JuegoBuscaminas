@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.gridlayout.widget.GridLayout;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.io.IOException;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -33,6 +37,8 @@ public class Second_Activity extends AppCompatActivity {
     private boolean ganar = false;
     private int numBanderas=0;
     private int numDescubiertas=0;
+
+    private MediaPlayer mediaPlayer=new MediaPlayer();
 
 
     private int[][] Tablero;
@@ -138,12 +144,27 @@ public class Second_Activity extends AppCompatActivity {
                                 button.setImageDrawable(getDrawable(R.drawable.mina));
                                 vaciarTablero(i);
                                 timer.cancel();
-                                Intent intent = new Intent(Second_Activity.this, Activity_resultado.class);
-                                intent.putExtra("NIVEL", nivel);
-                                intent.putExtra("MODO", modo);
-                                intent.putExtra("TIEMPO", String.valueOf(timer));
-                                intent.putExtra("GANAR", ganar);
-                                startActivityForResult(intent, ACTIVITY_RESULT);
+                                buttonBack.setEnabled(false);
+                                try {
+                                    mediaPlayer.setDataSource(Second_Activity.this, Uri.parse("android.resource://" +
+                                            getPackageName() + "/" + R.raw.perder));
+                                    mediaPlayer.prepare();
+                                    mediaPlayer.start();
+                                } catch (IOException e) {
+                                    Toast toast = Toast.makeText(getApplicationContext(),getText(R.string.error), Toast.LENGTH_SHORT);
+                                    toast.show();
+                                }
+                                new Handler().postDelayed(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        Intent intent = new Intent(Second_Activity.this, Activity_resultado.class);
+                                        intent.putExtra("NIVEL", nivel);
+                                        intent.putExtra("MODO", modo);
+                                        intent.putExtra("TIEMPO", String.valueOf(timer));
+                                        intent.putExtra("GANAR", ganar);
+                                        startActivityForResult(intent, ACTIVITY_RESULT);
+                                    }
+                                },2000);
                             } else {
                                 switch (Tablero[button.getFila()][button.getColumna()]) {
                                     case 1:
@@ -197,15 +218,31 @@ public class Second_Activity extends AppCompatActivity {
 
                         }
                         if(numDescubiertas==i*i-i){
+                            buttonBack.setEnabled(false);
                             ganar=true;
                             vaciarTablero(i);
                             timer.cancel();
-                            Intent intent = new Intent(Second_Activity.this, Activity_resultado.class);
-                            intent.putExtra("NIVEL", nivel);
-                            intent.putExtra("MODO", modo);
-                            intent.putExtra("TIEMPO", String.valueOf(seconds));
-                            intent.putExtra("GANAR", ganar);
-                            startActivityForResult(intent, ACTIVITY_RESULT);
+                            try {
+                                mediaPlayer.setDataSource(Second_Activity.this, Uri.parse("android.resource://" +
+                                        getPackageName() + "/" + R.raw.ganar));
+                                mediaPlayer.prepare();
+                                mediaPlayer.start();
+                            } catch (IOException e) {
+                                Toast toast = Toast.makeText(getApplicationContext(),getText(R.string.error), Toast.LENGTH_SHORT);
+                                toast.show();
+                            }
+                            new Handler().postDelayed(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Intent intent = new Intent(Second_Activity.this, Activity_resultado.class);
+                                    intent.putExtra("NIVEL", nivel);
+                                    intent.putExtra("MODO", modo);
+                                    intent.putExtra("TIEMPO", Integer.valueOf(seconds));
+                                    intent.putExtra("GANAR", ganar);
+                                    startActivityForResult(intent, ACTIVITY_RESULT);
+                                }
+                            },2000);
+
                         }
 
                     }
