@@ -163,6 +163,8 @@ public class Second_Activity extends AppCompatActivity {
                                         intent.putExtra("TIEMPO", String.valueOf(timer));
                                         intent.putExtra("GANAR", ganar);
                                         startActivityForResult(intent, ACTIVITY_RESULT);
+                                        overridePendingTransition(R.anim.fade_in,R.anim.fade_in);
+                                        finish();
                                     }
                                 },2000);
                             } else {
@@ -240,6 +242,7 @@ public class Second_Activity extends AppCompatActivity {
                                     intent.putExtra("TIEMPO", Integer.valueOf(seconds));
                                     intent.putExtra("GANAR", ganar);
                                     startActivityForResult(intent, ACTIVITY_RESULT);
+                                    overridePendingTransition(R.anim.fade_in,R.anim.fade_in);
                                 }
                             },2000);
 

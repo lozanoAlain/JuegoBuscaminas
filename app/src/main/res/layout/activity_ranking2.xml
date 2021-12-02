@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#EBFFD3"
+    android:backgroundTint="#EBFFD3"
+    tools:context=".Activity_Ranking2">
+
+    <TableLayout
+        android:id="@+id/tableLayout"
+        android:layout_width="356dp"
+        android:layout_height="428dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="77dp"
+        android:layout_marginEnd="28dp"
+        android:background="#FF7B7B"
+        android:backgroundTint="#FF7B7B"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBack"
+        android:layout_width="135dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="97dp"
+        android:backgroundTint="#FF7B7B"
+        android:fontFamily="@font/amiko"
+        android:text="@string/atras"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tableLayout" />
+</androidx.constraintlayout.widget.ConstraintLayout>

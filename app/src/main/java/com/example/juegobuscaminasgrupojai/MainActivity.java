@@ -91,6 +91,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("PARAM_2", modo);
                     startActivityForResult(intent, ACTIVITY_PREGUNTAS2);
                     overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_left);
+                    finish();
                 }
 
             }
