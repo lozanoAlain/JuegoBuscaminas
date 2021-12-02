@@ -8,11 +8,14 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.MediaController;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 import android.widget.VideoView;
 
@@ -28,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Button buttonTutorial;
     private VideoView videoView;
     private MediaController mediaPlayer;
+    private TextView textStart;
 
     String nivel ;
     String modo;
@@ -37,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
+        textStart=(TextView) findViewById(R.id.textStart);
+        Animation animation_Text= AnimationUtils.loadAnimation(this,R.anim.text_anim);
+        textStart.startAnimation(animation_Text);
         videoView=(VideoView) findViewById(R.id.videoViewTut);
         videoView.setVisibility(View.INVISIBLE);
         spinnerNivel= (Spinner) findViewById(R.id.spinnerNivel);
@@ -83,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                     intent.putExtra("PARAM_1", nivel);
                     intent.putExtra("PARAM_2", modo);
                     startActivityForResult(intent, ACTIVITY_PREGUNTAS2);
+                    overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_left);
                 }
 
             }
