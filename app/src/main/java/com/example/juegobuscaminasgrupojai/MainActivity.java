@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.Animation;
@@ -24,6 +25,7 @@ import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
     private static final int ACTIVITY_PREGUNTAS2 = 1;
+    private static final int GRABAR_VIDEO = 2;
 
     private Spinner spinnerNivel;
     private Spinner spinnerModo;
@@ -82,10 +84,15 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onClick(View view) {
+                if(modo.equals("Customizado")){
+                    comenzarGrabacion();
+
+                }
                 if(modo.equals("Supervivencia")){
                     Toast toast = Toast.makeText(getApplicationContext(),getText(R.string.noImplementado), Toast.LENGTH_SHORT);
                     toast.show();
-                }else{
+                }
+                if(modo.equals("Clasico")){
                     Intent intent = new Intent(MainActivity.this, Second_Activity.class);
                     intent.putExtra("PARAM_1", nivel);
                     intent.putExtra("PARAM_2", modo);
@@ -130,5 +137,24 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void comenzarGrabacion(){
+        Intent intent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
+        intent.putExtra(MediaStore.EXTRA_VIDEO_QUALITY, 0);
+        intent.putExtra(MediaStore.EXTRA_DURATION_LIMIT, 7);
 
+            startActivityForResult(intent, GRABAR_VIDEO);
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == GRABAR_VIDEO && resultCode == RESULT_OK) {
+            Intent intent = new Intent(MainActivity.this, Second_Activity.class);
+            intent.putExtra("PARAM_1", nivel);
+            intent.putExtra("PARAM_2", modo);
+            intent.putExtra("VIDEO",data);
+            startActivityForResult(intent, ACTIVITY_PREGUNTAS2);
+            overridePendingTransition(R.anim.slide_in_left,R.anim.slide_in_left);
+            finish();
+        }
+    }
 }

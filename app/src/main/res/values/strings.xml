@@ -22,6 +22,7 @@
     <string-array name="modo">
         <item>Clasico</item>
         <item>Supervivencia</item>
+        <item>Customizado</item>
     </string-array>
     <string name="noImplementado">Este modo de juego se implementará en la siguiente versión del juego</string>
     <string name="empezar">Empezar!</string>
