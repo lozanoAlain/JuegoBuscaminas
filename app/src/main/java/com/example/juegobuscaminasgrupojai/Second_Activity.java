@@ -12,7 +12,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.VideoView;
 
 import java.io.IOException;
 import java.util.Timer;
@@ -31,13 +33,14 @@ public class Second_Activity extends AppCompatActivity {
     private Button buttonBack = null;
     private GridLayout gridBuscaminas = null;
     private Timer timer = null;
-
+    private ImageView face=null;
     private String nivel = null;
     private String modo = null;
+    private Intent data=null;
     private boolean ganar = false;
     private int numBanderas=0;
     private int numDescubiertas=0;
-
+    private VideoView videoView=null;
     private MediaPlayer mediaPlayer=new MediaPlayer();
 
 
@@ -50,9 +53,11 @@ public class Second_Activity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_second);
-
+        face=(ImageView) findViewById(R.id.imageView);
         gridBuscaminas = (GridLayout) findViewById(R.id.gridBuscaminas);
-
+        videoView= (VideoView) findViewById(R.id.videoView);
+        videoView.setEnabled(false);
+        videoView.setVisibility(videoView.INVISIBLE);
         buttonBack = (Button) findViewById(R.id.btnBack);
         buttonBack.setOnClickListener(new View.OnClickListener() {
 
@@ -80,6 +85,17 @@ public class Second_Activity extends AppCompatActivity {
         nivel = extras.getString("PARAM_1");
         modo = extras.getString("PARAM_2");
 
+
+
+        if(modo.equals("Customizado")){
+            face.setVisibility(face.INVISIBLE);
+            videoView.setEnabled(true);
+            videoView.setVisibility(videoView.VISIBLE);
+            data = (Intent) extras.get("VIDEO");
+            VideoView videoView = (VideoView) findViewById(R.id.videoView);
+            videoView.setVideoURI(data.getData());
+            videoView.start();
+        }
         switch (nivel) {
             case "Facil":
                 iniciarGridLayout(5);
